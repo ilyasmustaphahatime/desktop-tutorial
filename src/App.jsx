@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 import { WishlistProvider } from './contexts/WishlistContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ToastProvider } from './contexts/ToastContext';
-import { ProductsProvider } from './contexts/ProductsContext';  // new
+import { ProductsProvider } from './contexts/ProductsContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Toast from './components/Toast';
@@ -22,8 +22,8 @@ function App() {
       <ToastProvider>
         <CartProvider>
           <WishlistProvider>
-            <ProductsProvider>   {/* Only one product context */}
-              <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+            <ProductsProvider>
+              <HashRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                 <div className="min-h-screen flex flex-col">
                   <Navbar />
                   <main className="flex-grow">
@@ -41,7 +41,7 @@ function App() {
                   <Footer />
                   <Toast />
                 </div>
-              </BrowserRouter>
+              </HashRouter>
             </ProductsProvider>
           </WishlistProvider>
         </CartProvider>
